@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IMovie } from './movie.model';
+import { IMovieThumbnail } from '../movies-list/movie-thumbnail.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,15 @@ export class MoviesService {
 
   constructor() { 
     this.baseUrl = BASEURL
+  }
+
+  getMovies(): IMovieThumbnail[] {
+    return MOVIES.results.map(movie => 
+      ({ id: movie.id,
+        title: movie.original_title, 
+        poster: `${this.baseUrl}${movie.poster_path}`,
+        release: new Date(movie.release_date)
+      }))
   }
 
   getMovie(): IMovie {
