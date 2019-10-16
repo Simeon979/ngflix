@@ -1,0 +1,11 @@
+<p>movie-details works!</p>
+<h2>{{ movie.title }}</h2>
+<main>
+  <img *ngIf="movie.poster" [src]="movie.poster" />
+  <p *ngIf="movie.overview">{{ movie.overview }}</p>
+  <p><em>Release date: </em> {{ movie.release }}</p>
+  <p *ngIf="movie.runtime"><em>Runtime: </em> {{ movie.runtime }}</p>
+  <p *ngFor="let genre of movie.genres"><em>Genre: </em><span>{{ genre }}, </span></p>
+  <p *ngFor="let company of movie.prodCompanies"><em>Companies: </em><span>{{ company }}, </span></p>
+  <p><em>Status: </em> {{ movie.status }}</p>
+</main>
