@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../shared/movies.service';
 import { IMovieThumbnail } from './movie-thumbnail.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'movies-list',
@@ -10,12 +11,12 @@ import { IMovieThumbnail } from './movie-thumbnail.model';
 export class MoviesListComponent implements OnInit {
 
   movies: IMovieThumbnail[]
-  constructor(private movieService: MoviesService) {
+  constructor(private movieService: MoviesService, private route: ActivatedRoute) {
 
    }
 
   ngOnInit() {
-    this.movies = this.movieService.getMovies()
+     this.movies = this.route.snapshot.data["movies"]
   }
 
 }

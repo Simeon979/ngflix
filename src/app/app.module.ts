@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DateFnsModule } from "ngx-date-fns"
+import { HttpClientModule } from "@angular/common/http"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { MovieThumbnailComponent } from "./movies/movies-list/movie-thumbnail.co
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     DateFnsModule.forRoot()
   ],
