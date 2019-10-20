@@ -1,4 +1,4 @@
-<section>
+<section [routerLink]="['/movies', movie.id]">
     <img [src]="movie.poster" />
     <p>{{movie.title}}</p>
     <p>{{movie.release | dfnsFormat: "LLLL, yyyy"}}</p>
