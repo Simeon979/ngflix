@@ -11,12 +11,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class MoviesListComponent implements OnInit {
 
   movies: IMovieThumbnail[]
+  heading: string
   constructor(private movieService: MoviesService, private route: ActivatedRoute) {
 
    }
 
   ngOnInit() {
-     this.movies = this.route.snapshot.data["movies"]
+    this.heading = this.route.snapshot.data["moviesDetails"]["heading"]
+    this.movies = this.route.snapshot.data["moviesDetails"]["movies"]
   }
 
 }
