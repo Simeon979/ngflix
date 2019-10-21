@@ -4,11 +4,13 @@ import { MoviesListComponent } from './movies/movies-list/movies-list.component'
 import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
 import { MoviesListResolverService } from './movies/movies-list/movies-list-resolver.service';
 import { MovieDetailsResolverService } from "./movies/movie-details/movie-details-resolver.service"
+import { FavoriteMoviesListResolverService } from './movies/movies-list/favorite-movies-list-resolver.service';
 
 
 const routes: Routes = [
-  { path: "movies", component: MoviesListComponent, resolve: { movies: MoviesListResolverService } },
-  { path: "movies/:id", component: MovieDetailsComponent, resolve: { movie: MovieDetailsResolverService } },
+  { path: "movies", component: MoviesListComponent, resolve: { moviesDetails: MoviesListResolverService} },
+  { path: "movies/favorites", component: MoviesListComponent, resolve: { moviesDetails: FavoriteMoviesListResolverService} },
+  { path: "movies/:id", component: MovieDetailsComponent, resolve: { movieDetails: MovieDetailsResolverService } },
   { path: "", redirectTo: "/movies", pathMatch: "full" },
 ];
 

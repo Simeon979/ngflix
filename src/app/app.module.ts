@@ -9,6 +9,9 @@ import { MovieDetailsComponent } from './movies/movie-details/movie-details.comp
 import { MoviesService } from './movies/shared/movies.service';
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MovieThumbnailComponent } from "./movies/movies-list/movie-thumbnail.component";
+import { MoviesListResolverService } from './movies/movies-list/movies-list-resolver.service';
+import { MovieDetailsResolverService } from './movies/movie-details/movie-details-resolver.service';
+import { FavoriteMoviesListResolverService } from './movies/movies-list/favorite-movies-list-resolver.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { MovieThumbnailComponent } from "./movies/movies-list/movie-thumbnail.co
     DateFnsModule.forRoot()
   ],
   providers: [
-    MoviesService
+    MoviesService,
+    MoviesListResolverService,
+    MovieDetailsResolverService,
+    FavoriteMoviesListResolverService
   ],
   bootstrap: [AppComponent]
 })

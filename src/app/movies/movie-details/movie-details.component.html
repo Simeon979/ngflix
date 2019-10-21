@@ -8,4 +8,5 @@
   <p><em>Genre: </em><span *ngFor="let genre of movie.genres">{{ genre }}, </span></p>
   <p><em>Companies: </em><span *ngFor="let company of movie.prodCompanies">{{ company }}, </span></p>
   <p><em>Status: </em> {{ movie.status }}</p>
+  <button (click)="handleFavoriteClick()">{{isFavorite ? "Remove from favorites" : "Add to Favorite" }}</button>
 </main>
