@@ -77,3 +77,10 @@ export class MoviesService {
   }
 
 }
+
+export const movieToMovieThumbnail = (movie: IMovie) : IMovieThumbnail => ({
+  id: movie["id"],
+  title: movie["title"],
+  poster: movie["poster"],
+  release: movie["release"]
+})
