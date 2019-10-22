@@ -17,8 +17,13 @@ export class MoviesListComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.heading = this.route.snapshot.data["moviesDetails"]["heading"]
-    this.movies = this.route.snapshot.data["moviesDetails"]["movies"]
+    this.route.data.subscribe(
+      (data) => {
+        this.heading = this.route.snapshot.data["moviesDetails"]["heading"]
+        this.movies = this.route.snapshot.data["moviesDetails"]["movies"]
+
+      }
+    )
   }
 
 }
