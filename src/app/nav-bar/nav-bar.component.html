@@ -1,0 +1,13 @@
+<nav>
+    <p>ngFlix</p>
+    <ul>
+        <li>
+            <form (ngSubmit)="onSearchSubmit()">
+                <input [(ngModel)]="searchTerm" type="text" name="movie-search" placeholder="Search"/>
+                <input type="submit" name="submit" value="Search" />
+            </form>
+        </li>
+        <li><a [routerLink]="['movies']">All Movies</a></li>
+        <li><a [routerLink]="['movies/favorites']">Favories</a></li>
+    </ul>
+</nav>

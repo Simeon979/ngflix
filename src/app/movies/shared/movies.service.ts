@@ -62,6 +62,25 @@ export class MoviesService {
     )
   }
 
+  getSearchedMovies(searchTerm: string) {
+    const url = this.getApiUrl("/search/movie")
+    const urlWithSearchExtra = `${url}&query=${searchTerm}`
+    const baseData$ = this.getBaseData()
+    const moviesResult$ = this.http.get(urlWithSearchExtra)
+    return forkJoin([baseData$, moviesResult$]).pipe(
+      map(([baseData, movieResult]) => {
+        const imgUrl = `${baseData.baseUrl}${baseData.posterSizes[0]}`
+        return movieResult["results"].map(movie => ({ 
+          id: movie.id,
+          title: movie.original_title, 
+          poster: `${imgUrl}${movie.poster_path}`,
+          release: new Date(movie.release_date)
+        }))
+      })
+    )
+
+  }
+
   getBaseData(): Observable<IBaseData> {
     if (this.baseData) return of(this.baseData)
 

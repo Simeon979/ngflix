@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DateFnsModule } from "ngx-date-fns"
 import { HttpClientModule } from "@angular/common/http"
+import { FormsModule } from "@angular/forms"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,17 +13,20 @@ import { MovieThumbnailComponent } from "./movies/movies-list/movie-thumbnail.co
 import { MoviesListResolverService } from './movies/movies-list/movies-list-resolver.service';
 import { MovieDetailsResolverService } from './movies/movie-details/movie-details-resolver.service';
 import { FavoriteMoviesListResolverService } from './movies/movies-list/favorite-movies-list-resolver.service';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieDetailsComponent,
     MoviesListComponent,
-    MovieThumbnailComponent
+    MovieThumbnailComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     DateFnsModule.forRoot()
   ],
